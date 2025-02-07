@@ -11,6 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Set Execution Policy
+        run: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process -Force
+
       - name: copy to host directory
         run:  powershell Copy-Item -Path C:\Users\Marwan\actions-runner\_work\DDD_ContiniuousDeployment* -Destination C:\inetpub\wwwroot -force -force
 
