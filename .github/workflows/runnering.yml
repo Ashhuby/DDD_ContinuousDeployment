@@ -16,6 +16,6 @@ jobs:
         run: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process -Force
 
       - name: copy to host directory
-        run:  powershell Copy-Item -Path C:\Users\Marwan\actions-runner\_work\DDD_ContiniuousDeployment* -Destination C:\inetpub\wwwroot -force -force
+        run:  powershell Copy-Item -Path C:\Users\Marwan\actions-runner\_work\DDD_ContinuousDeployment\DDD_ContinuousDeployment* -Destination C:\inetpub\wwwroot -force
 
   
