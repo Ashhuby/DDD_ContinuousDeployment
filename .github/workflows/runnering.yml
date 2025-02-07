@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
 
-
 jobs:
   deploy:
     runs-on: self-hosted
@@ -12,10 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Set Execution Policy
-        run: powershell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process -Force
-
-      - name: copy to host directory
-        run:  powershell Copy-Item -Path C:\Users\Marwan\actions-runner\_work\DDD_ContinuousDeployment\DDD_ContinuousDeployment* -Destination C:\inetpub\wwwroot -force
-
-  
+      - name: Copy files to host directory
+        shell: cmd
+        run: powershell -NoProfile -NonInteractive -Command "Copy-Item -Path 'C:\Users\Marwan\actions-runner\DDD_ContiniuousDeployment*' -Destination 'C:\inetpub\wwwroot' -Force"
